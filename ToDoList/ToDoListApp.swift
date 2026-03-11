@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct ToDoListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ToDoListView()
+                .modelContainer(for: ToDo.self)
         }
+    }
+    
+    //will allow us to find our simulator data, where it's saved
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }
